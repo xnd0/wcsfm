@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/smoke-and-fire-icon.png" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
         integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
     <link rel="stylesheet" href="./style.css">
@@ -20,9 +21,13 @@
         <div class='flex-container'>
             <div class='main-leftside'>
                 <p>(leftside)</p>
-                <p>search:
-                    <img src={fireicon} alt="fire flames" height={60} width={60} />
-                </p>
+
+                <div class="flex-row">
+                   
+                    <img src="images/fire-icon.png" alt="fire flames" height=50 width=50 />
+                    <p>search:</p>
+                </div>
+
                 <button onClick={FireAPI}> Active Wildfires </button>
                 <button onClick={APItest}> APItest </button>
                 <button onClick={OneFire}> console.log OneFire API data </button>
