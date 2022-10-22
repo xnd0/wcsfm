@@ -1,0 +1,80 @@
+/* --------------------------- */
+/* -------- CSS Sheet -------- */
+/* --------------------------- */
+
+
+
+header, footer {
+    background-color: #282c34;
+    min-height: 4vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(8px + 1vmin);
+    color: white;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+.App-main {
+    background-color: #b5c2da;
+    /* min-height: 60vh; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* font-size: calc(10px + 2vmin); */
+    color: white;
+}
+
+.main-leftside {
+    background-color: #adb1b7;
+    min-height: 80vh;
+    min-width: 12vh;
+}
+
+.main-rightside {
+    background-color: #adb1b7;
+    min-height: 80vh;
+    min-width: 15vh;
+    max-width: 170px;
+}
+
+.flex-apart {
+    justify-content: space-between;
+}
+
+
+.App-link {
+    color: #61dafb;
+}
+
+.App-footer {
+    background-color: #0f1012;
+    min-height: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(8px + 1vmin);
+    color: white;
+}
+
+.leaflet-container {
+    min-height: 80vh;
+    min-width: 80vw;
+}
+
+#map {
+    background-color: #282c34;
+    min-height: 80vh;
+    min-width: 80vh;
+}
