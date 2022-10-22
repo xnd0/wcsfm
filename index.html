@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-    crossorigin=""/>
+        integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
     <link rel="stylesheet" href="./style.css">
     <title>lw-wcsfm</title>
 </head>
+
 <body>
 
-    <header> westcoast smoke and fire map v2.0</header>
+    <div id="app-wrap">
 
-    <div className='App-main'>
-        <div className='main-leftside'>
-            <p>(leftside)</p>
-            <p>search:
-            <img src={fireicon} alt="fire flames" height={60} width={60} />
-            </p>
-            <button onClick={FireAPI}> Active Wildfires </button>
-            <button onClick={APItest}> APItest </button>
-            <button onClick={OneFire}> console.log OneFire API data </button>
-            <button onClick={AddMarker}> Add Marker </button>
-        </div>
+        <header> Header · westcoast smoke and fire map v2.0</header>
 
-        <div id="map" className='main-center'>
-            <Map data={data} index={index} />
-        </div>
+        <div class='flex-container'>
+            <div class='main-leftside'>
+                <p>(leftside)</p>
+                <p>search:
+                    <img src={fireicon} alt="fire flames" height={60} width={60} />
+                </p>
+                <button onClick={FireAPI}> Active Wildfires </button>
+                <button onClick={APItest}> APItest </button>
+                <button onClick={OneFire}> console.log OneFire API data </button>
+                <button onClick={AddMarker}> Add Marker </button>
+            </div>
 
-        <div className='main-rightside'>
-            <p>(rightside)</p>
-            <p>goto:</p>
-            <button onClick=OneFire> New console.log OneFire API data </button>
-            <!-- {data.map(({ name }, idx) => (
+            <div id="map" className='main-center'>
+                <Map data={data} index={index} />
+            </div>
+
+            <div class='main-rightside'>
+                <p>(rightside)</p>
+                <p>goto:</p>
+                <!-- <button onClick=OneFire> New console.log OneFire API data </button> -->
+                <!-- {data.map(({ name }, idx) => (
                 <button onClick={() => setIndex(idx)}>{`${name}`}</button>
             ))} -->
+            </div>
         </div>
+
+
+        <footer>Footer · westcoast smoke and fire map v2.0 </footer>
+
     </div>
 
-
-    <footer> westcoast smoke and fire map v2.0 </footer>
-
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-     crossorigin=""></script>
+        integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
     <script src="./script.js"></script>
 </body>
+
 </html>
