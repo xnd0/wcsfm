@@ -21,17 +21,13 @@
         <div class='flex-container'>
             <div class='main-leftside'>
                 <p>(leftside)</p>
-
                 <div class="flex-row">
-                   
                     <img src="images/fire-icon.png" alt="fire flames" height=50 width=50 />
                     <p>search:</p>
                 </div>
 
-                <button onClick={FireAPI}> Active Wildfires </button>
-                <button onClick={APItest}> APItest </button>
-                <button onClick={OneFire}> console.log OneFire API data </button>
-                <button onClick={AddMarker}> Add Marker </button>
+                <button id="addtestmarker">add testmarker</button>
+                <button id="removetestmarker">remove testmarker</button>
             </div>
 
             <div id="map" className='main-center'>
