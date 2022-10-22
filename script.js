@@ -15,6 +15,24 @@ let url = 'https://eonet.gsfc.nasa.gov/api/v3/events?category=wildfires';
 let i = 0;
 
 let firemark1 = 0;
+let arrlength = 0;
+let fireArray = [];
+let firemarker = 0;
+
+
+function placeMarker() {
+    for (let index = 0; index < fireArray.length; index++) {
+        const element = fireArray[index];
+        console.log(element);
+        // const longlat = fireArray[index].geometry[0].coordinates;
+        // console.log(longlat)
+        const lat = fireArray[index].geometry[0].coordinates[1];
+        const long = fireArray[index].geometry[0].coordinates[0];
+        console.log(lat,long);
+        firemarker = L.marker([lat, long]).addTo(map)
+
+    }
+}
 
 function getFireData() {
     console.log('getfiredata button fire');
@@ -37,11 +55,24 @@ function getFireData() {
 
             console.log('OneFire Latitude (mylat): ', mylat),
             console.log('OneFire Longitude: (mylong): ', mylong),
-            console.log('For the Above ^ wildfire name (mytitle) is: ', mytitle)
+            console.log('For the Above ^ wildfire name (mytitle) is: ', mytitle),
+
+            arrlength = data.events.length,
+            console.log('arrlength is:', arrlength),
+
+            fireArray = data.events,
+            console.log('fireArray is:', fireArray)
+
         )
+        )
+        .then(data => (placeMarker(data)
+            
+        )
+
         ).catch(error => console.log(error));
 };
 // -^-^-^- Fetch Fire Data -^-^-^- //
+
 
 
 // -v-v-v- Generate test markers -v-v-v- //
