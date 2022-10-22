@@ -9,7 +9,7 @@ const GetFireData = document.querySelector('#getfiredata')
 
 
 
-// -v-v-v- Fetch Fire Data -v-v-v- //
+// -v-v-v- Fetch and Place Fire Data -v-v-v- //
 
 let url = 'https://eonet.gsfc.nasa.gov/api/v3/events?category=wildfires';
 let i = 0;
@@ -19,18 +19,26 @@ let arrlength = 0;
 let fireArray = [];
 let firemarker = 0;
 
+const fireicon = new L.icon({
+    iconUrl: "./images/fire-icon.png",
+    iconSize: [40, 40]
+});
+
 
 function placeMarker() {
     for (let index = 0; index < fireArray.length; index++) {
         const element = fireArray[index];
         console.log(element);
-        // const longlat = fireArray[index].geometry[0].coordinates;
-        // console.log(longlat)
+
         const lat = fireArray[index].geometry[0].coordinates[1];
         const long = fireArray[index].geometry[0].coordinates[0];
-        console.log(lat,long);
-        firemarker = L.marker([lat, long]).addTo(map)
+        const title = fireArray[index].title;
+        const infolink = fireArray[index].sources[0].url
 
+        console.log(lat,long);
+        firemarker = L.marker([lat, long], {icon: fireicon})
+            .addTo(map)
+            .bindPopup(title + '<br>' + '<a href="' + infolink + '"target="_blank" rel="noopener noreferrer">Link (new tab) for more information on the ' + title + '</a>');
     }
 }
 
@@ -51,7 +59,7 @@ function getFireData() {
             mylat = data.events[i].geometry[i].coordinates[(i + 1)],
             mytitle = data.events[i].title,
 
-            firemark1 = L.marker([mylat, mylong]).addTo(map).bindPopup(mytitle),
+            firemark1 = L.marker([mylat, mylong]).addTo(map).bindPopup("Most Recent Fire: " + mytitle),
 
             console.log('OneFire Latitude (mylat): ', mylat),
             console.log('OneFire Longitude: (mylong): ', mylong),
@@ -65,13 +73,10 @@ function getFireData() {
 
         )
         )
-        .then(data => (placeMarker(data)
-            
-        )
-
-        ).catch(error => console.log(error));
+        .then(data => (placeMarker(data)))
+        .catch(error => console.log(error));
 };
-// -^-^-^- Fetch Fire Data -^-^-^- //
+// -^-^-^- Fetch and Place Fire Data -^-^-^- //
 
 
 
