@@ -53,8 +53,8 @@ header, footer {
 .main-rightside {
     background-color: #adb1b7;
     min-height: 60vh;
-    min-width: 15vw;
-    max-width: 20vw;
+    min-width: 12vw;
+    max-width: 15vw;
 }
 
 .flex-container {

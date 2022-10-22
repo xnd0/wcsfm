@@ -7,6 +7,37 @@ const RemoveTestMarker = document.querySelector('#removetestmarker')
 
 const GetFireData = document.querySelector('#getfiredata')
 
+const RepoMapWestCoast = document.querySelector('#repomapwestcoast')
+const RepoMapSeattle = document.querySelector('#repomapseattle')
+const RepoMapPDX = document.querySelector('#repomappdx')
+const RepoMapSF = document.querySelector('#repomapsf')
+const RepoMapLA = document.querySelector('#repomapla')
+
+
+// -v-v-v- Reposition Map -v-v-v- //
+
+function repoMapWestCoast() {
+    map.setView(new L.LatLng(41.1, -125), 5);
+};
+
+function repoMapSeattle() {
+    map.setView(new L.LatLng(47.606, -122.332), 8);
+};
+
+function repoMapPDX() {
+    map.setView(new L.LatLng(45, -122), 7);
+};
+
+function repoMapSF() {
+    map.setView(new L.LatLng(37.775, -122.419), 7);
+};
+
+function repoMapLA() {
+    map.setView(new L.LatLng(33.958, -118.45), 8);
+};
+
+// -^-^-^- Reposition Map -^-^-^- //
+
 
 
 // -v-v-v- Fetch and Place Fire Data -v-v-v- //
@@ -111,3 +142,9 @@ AddTestMarker.addEventListener('click', addTestMarker);
 RemoveTestMarker.addEventListener('click', removeTestMarker);
 
 GetFireData.addEventListener('click', getFireData);
+
+RepoMapWestCoast.addEventListener('click', repoMapWestCoast)
+RepoMapSeattle.addEventListener('click', repoMapSeattle)
+RepoMapPDX.addEventListener('click', repoMapPDX)
+RepoMapSF.addEventListener('click', repoMapSF)
+RepoMapLA.addEventListener('click', repoMapLA)
