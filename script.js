@@ -35,7 +35,6 @@ function repoMapSF() {
 function repoMapLA() {
     map.setView(new L.LatLng(33.958, -118.45), 8);
 };
-
 // -^-^-^- Reposition Map -^-^-^- //
 
 
@@ -65,11 +64,12 @@ function placeMarker() {
         const long = fireArray[index].geometry[0].coordinates[0];
         const title = fireArray[index].title;
         const infolink = fireArray[index].sources[0].url
+        const firedate = fireArray[index].geometry[0].date
 
         console.log(lat,long);
         firemarker = L.marker([lat, long], {icon: fireicon})
             .addTo(map)
-            .bindPopup(title + '<br>' + '<a href="' + infolink + '"target="_blank" rel="noopener noreferrer">Link (new tab) for more information on the ' + title + '</a>');
+            .bindPopup('Name: ' + title + '<br>' + 'Date: ' + firedate + '<br>' + '<a href="' + infolink + '"target="_blank" rel="noopener noreferrer">Link (new tab) for more information on the ' + title + '</a>');
     }
 }
 
@@ -148,3 +148,6 @@ RepoMapSeattle.addEventListener('click', repoMapSeattle)
 RepoMapPDX.addEventListener('click', repoMapPDX)
 RepoMapSF.addEventListener('click', repoMapSF)
 RepoMapLA.addEventListener('click', repoMapLA)
+
+
+getFireData();
