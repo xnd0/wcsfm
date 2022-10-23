@@ -72,7 +72,6 @@ header, footer {
     flex-direction: row;
 }
 
-
 .App-link {
     color: #61dafb;
 }
@@ -92,6 +91,35 @@ header, footer {
     min-height: 80vh;
     min-width: 80vw;
 }
+
+/* -v-v-v- Display Loader -v-v-v-  */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #adb1b7;
+    z-index: 1;
+    flex: 1;
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 10px solid;
+    border-color: #751515 transparent #310000 transparent;
+    border-radius: 50%;
+    animation: spin-anim 0.9s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* -^-^-^- Display Loader -^-^-^-  */
 
 #map {
     background-color: #282c34;

@@ -2,6 +2,7 @@
 // -------- Javascript Page -------- \\
 // --------------------------------- \\
 
+
 const AddTestMarker = document.querySelector('#addtestmarker')
 const RemoveTestMarker = document.querySelector('#removetestmarker')
 
@@ -13,9 +14,10 @@ const RepoMapPDX = document.querySelector('#repomappdx')
 const RepoMapSF = document.querySelector('#repomapsf')
 const RepoMapLA = document.querySelector('#repomapla')
 
+const loaderContainer = document.querySelector('.loader-container');
+
 
 // -v-v-v- Reposition Map -v-v-v- //
-
 function repoMapWestCoast() {
     map.setView(new L.LatLng(41.1, -125), 5);
 };
@@ -38,9 +40,18 @@ function repoMapLA() {
 // -^-^-^- Reposition Map -^-^-^- //
 
 
+// -v-v-v- Display Loader -v-v-v- //
+const displayLoader = () => {
+    loaderContainer.style.display = 'block';
+};
+
+const hideLoader = () => {
+    loaderContainer.style.display = 'none';
+};
+// -^-^-^- Display Loader -^-^-^- //
+
 
 // -v-v-v- Fetch and Place Fire Data -v-v-v- //
-
 let url = 'https://eonet.gsfc.nasa.gov/api/v3/events?category=wildfires';
 let i = 0;
 
@@ -69,13 +80,13 @@ function placeMarker() {
         console.log(lat,long);
         firemarker = L.marker([lat, long], {icon: fireicon})
             .addTo(map)
-            .bindPopup('Name: ' + title + '<br>' + 'Date: ' + firedate + '<br>' + '<a href="' + infolink + '"target="_blank" rel="noopener noreferrer">Link (new tab) for more information on the ' + title + '</a>');
+            .bindPopup('Name: "' + title + '"<br>' + 'Date: ' + firedate + '<br>' + '<a href="' + infolink + '"target="_blank" rel="noopener noreferrer">Link (new tab) for more information on the "' + title + '"</a>');
     }
 }
 
 function getFireData() {
     console.log('getfiredata button fire');
-
+    displayLoader();
     fetch(url)
         .then(response => response.json())
         .then(data => (
@@ -104,7 +115,11 @@ function getFireData() {
 
         )
         )
-        .then(data => (placeMarker(data)))
+        .then(data => {
+            (placeMarker(data));
+            hideLoader();
+        }
+        )
         .catch(error => console.log(error));
 };
 // -^-^-^- Fetch and Place Fire Data -^-^-^- //
