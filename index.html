@@ -16,7 +16,7 @@
 
     <div id="app-wrap">
 
-        <header> Header · West Coast Fire Map</header>
+        <header> Header · West Coast Fire + AQI Map</header>
 
         <div class='flex-container'>
             <div class='main-leftside'>
@@ -30,8 +30,8 @@
                 <br>
                 <button id="logfiredata">Console.log Info</button>
                 <br>
-                <button id="addtestmarker">add testmarker</button>
-                <button id="removetestmarker">remove testmarker</button>
+                <button id="addtestmarker">add_testmarker</button>
+                <button id="removetestmarker">remove_testmarker</button>
                 <br>
 
                 <div class="loader-container" style="display:none">
@@ -57,24 +57,20 @@
                 </div>
 
                 <!-- AQI Map -->
-                <p>Load AQI + reposition:</p>
+                <p>Load AQI + Reposition:</p>
                 <div class="flex-row">
                     <div class="location-wrap">
                         <div id="leaflet-locations"></div>
                     </div>
-
                     <!-- <div id="leaflet-map"></div> -->
-
-                    <div id="leaflet-map-bounds"></div>
-                    <div id="leaflet-map-error"></div>
                 </div>
+                <div id="leaflet-map-bounds"></div>
+                <!-- <div id="leaflet-map-error"></div> -->
             </div>
 
         </div>
 
-
-
-        <footer>Footer · West Coast Fire Map </footer>
+        <footer>Footer · West Coast Fire + AQI Map </footer>
 
     </div>
 
