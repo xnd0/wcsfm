@@ -44,7 +44,7 @@ header, footer {
 .main-leftside {
     background-color: #adb1b7;
     min-height: 60vh;
-    min-width: 18vh;
+    min-width: 8vw;
     max-width: 20vw;
     display: flex;
     flex-direction: column;
@@ -53,7 +53,7 @@ header, footer {
 .main-rightside {
     background-color: #adb1b7;
     min-height: 60vh;
-    min-width: 12vw;
+    min-width: 2vw;
     max-width: 15vw;
 }
 
@@ -70,6 +70,11 @@ header, footer {
 .flex-row {
     display: flex;
     flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
 
 .App-link {

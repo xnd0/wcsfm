@@ -20,7 +20,7 @@
 
         <div class='flex-container'>
             <div class='main-leftside'>
-                <p>(leftside)</p>
+                <!-- <p>(leftside)</p> -->
                 <div class="flex-row">
                     <img src="images/fire-icon.png" alt="fire flames" height=50 width=50 />
                     <p>search:</p>
@@ -45,20 +45,22 @@
             </div>
 
             <div class='main-rightside'>
-                <p>(rightside)</p>
-                <p>goto:</p>
-                <button id="repomapwestcoast">West Coast, USA</button>
-                <button id="repomapseattle">Seattle, WA</button>
-                <button id="repomappdx">Portland, OR</button>
-                <button id="repomapsf">San Francisco, CA</button>
-                <button id="repomapla">Los Angeles, CA</button>
+                <!-- <p>(rightside)</p> -->
+                <div class="flex-column">
+                    <p>Map Goto:</p>
+                    <button id="repomapwestcoast">West Coast, USA</button>
+                    <button id="repomapseattle">Seattle, WA</button>
+                    <button id="repomappdx">Portland, OR</button>
+                    <button id="repomapsf">San Francisco, CA</button>
+                    <button id="repomapla">Los Angeles, CA</button>
+                </div>
 
                 <!-- AQI Map -->
-                <p>AQI reposition:</p>
+                <p>Load AQI + reposition:</p>
                 <div class="flex-row">
                     <div class="location-wrap">
-                    <div id="leaflet-locations"></div>
-                </div>
+                        <div id="leaflet-locations"></div>
+                    </div>
 
                     <!-- <div id="leaflet-map"></div> -->
 
@@ -77,7 +79,7 @@
 
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
         integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
-    <script src="./aqi.js"></script>
+    <!-- <script src="./aqi.js"></script> -->
     <script src="./script.js"></script>
 </body>
 
