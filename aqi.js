@@ -15,7 +15,7 @@ function createMap() {
         }
     );
  
-    let map = L.map(document.getElementById("leaflet-map"), {
+    let map = L.map(document.getElementById("map"), {
         attributionControl: false,
         gestureHandling: true,
         zoomSnap: 0.1,
@@ -181,7 +181,7 @@ function getMarkerAQI(markerUID) {
 }
  
 function init() {
-    var map = createMap();
+    // var map = createMap();
  
     const locations = {
         LosAngeles: "34.052235,-118.243683",
