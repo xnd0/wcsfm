@@ -56,12 +56,24 @@
 
         </div>
 
+        <!-- AQI Map -->
+
+        <div class="flex-row">
+            <div id="leaflet-locations"></div>
+
+            <div id="leaflet-map"></div>
+
+            <div id="leaflet-map-bounds"></div>
+            <div id="leaflet-map-error"></div>
+        </div>
+
         <footer>Footer · West Coast Fire Map </footer>
 
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
         integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+    <script src="./aqi.js"></script>
     <script src="./script.js"></script>
 </body>
 

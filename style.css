@@ -60,7 +60,7 @@ header, footer {
 .flex-container {
     display: flex;
     flex: 1;
-    min-height: 90vh;
+    min-height: 60vh;
 }
 
 .flex-apart {
@@ -85,11 +85,6 @@ header, footer {
     justify-content: center;
     font-size: calc(8px + 1vmin);
     color: white;
-}
-
-.leaflet-container {
-    min-height: 80vh;
-    min-width: 80vw;
 }
 
 /* -v-v-v- Display Loader -v-v-v-  */
@@ -132,3 +127,16 @@ header, footer {
     width: 100vw;
     height: 100vh;
 }
+
+#leaflet-map {
+    align-items: center;
+    width: 400px;
+    height: 300px;
+ }
+
+#leaflet-locations {
+    background-color: #b5c2da;
+    margin: 2px;
+    border: 1px solid black
+}
+
