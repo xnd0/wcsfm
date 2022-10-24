@@ -7,6 +7,7 @@ const AddTestMarker = document.querySelector('#addtestmarker')
 const RemoveTestMarker = document.querySelector('#removetestmarker')
 
 const GetFireData = document.querySelector('#getfiredata')
+const LogFireData = document.querySelector('#logfiredata')
 
 const RepoMapWestCoast = document.querySelector('#repomapwestcoast')
 const RepoMapSeattle = document.querySelector('#repomapseattle')
@@ -86,7 +87,7 @@ function placeMarker() {
 
 function getFireData() {
     console.log('getfiredata button fire');
-    displayLoader();
+    displayLoader()
     fetch(url)
         .then(response => response.json())
         .then(data => (
@@ -125,6 +126,14 @@ function getFireData() {
 // -^-^-^- Fetch and Place Fire Data -^-^-^- //
 
 
+function logFireData() {
+    console.log('OneFire Latitude (mylat): ', mylat),
+    console.log('OneFire Longitude: (mylong): ', mylong),
+    console.log('For the Above ^ wildfire name (mytitle) is: ', mytitle),
+    console.log('arrlength is:', arrlength),
+    console.log('fireArray is:', fireArray)
+}
+
 
 // -v-v-v- Generate test markers -v-v-v- //
 let testmarker = 0;
@@ -157,6 +166,7 @@ AddTestMarker.addEventListener('click', addTestMarker);
 RemoveTestMarker.addEventListener('click', removeTestMarker);
 
 GetFireData.addEventListener('click', getFireData);
+LogFireData.addEventListener('click', logFireData);
 
 RepoMapWestCoast.addEventListener('click', repoMapWestCoast)
 RepoMapSeattle.addEventListener('click', repoMapSeattle)
@@ -165,4 +175,4 @@ RepoMapSF.addEventListener('click', repoMapSF)
 RepoMapLA.addEventListener('click', repoMapLA)
 
 
-getFireData();
+// getFireData();
