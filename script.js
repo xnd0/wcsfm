@@ -203,7 +203,7 @@ function init() {
  
     const locations = {
         // "xWestCoast, USA": "41.1, -125",
-        Seattle: "47.606, -122.332",
+        Seattle: "47.606000, -122.332000",
         Portland: "44.9, -123",
         "San Francisco": "37.775, -122.419",
         "Los Angeles": "34.052235,-118.243683",
