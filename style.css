@@ -44,7 +44,7 @@ header, footer {
 .main-leftside {
     background-color: #adb1b7;
     min-height: 60vh;
-    min-width: 18vh;
+    min-width: 8vw;
     max-width: 20vw;
     display: flex;
     flex-direction: column;
@@ -53,7 +53,7 @@ header, footer {
 .main-rightside {
     background-color: #adb1b7;
     min-height: 60vh;
-    min-width: 12vw;
+    min-width: 2vw;
     max-width: 15vw;
 }
 
@@ -72,6 +72,11 @@ header, footer {
     flex-direction: row;
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 .App-link {
     color: #61dafb;
 }
@@ -85,11 +90,6 @@ header, footer {
     justify-content: center;
     font-size: calc(8px + 1vmin);
     color: white;
-}
-
-.leaflet-container {
-    min-height: 80vh;
-    min-width: 80vw;
 }
 
 /* -v-v-v- Display Loader -v-v-v-  */
@@ -109,6 +109,11 @@ header, footer {
     border-color: #751515 transparent #310000 transparent;
     border-radius: 50%;
     animation: spin-anim 0.9s linear infinite;
+}
+
+.location-wrap {
+    background-color: #282c34;
+    flex: wrap;
 }
 
 @keyframes spin-anim {
@@ -132,3 +137,17 @@ header, footer {
     width: 100vw;
     height: 100vh;
 }
+
+#leaflet-map {
+    align-items: center;
+    width: 400px;
+    height: 300px;
+ }
+
+#leaflet-locations {
+    background-color: #b5c2da;
+    margin: 2px;
+    border: 1px solid black;
+    flex:none
+}
+

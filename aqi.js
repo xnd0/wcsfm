@@ -1,25 +1,7 @@
 // --------------------------------- \\
-// -------- Javascript Page -------- \\
+// ------ AQI Javascript Page ------ \\
 // --------------------------------- \\
 
-
-const AddTestMarker = document.querySelector('#addtestmarker')
-const RemoveTestMarker = document.querySelector('#removetestmarker')
-
-const GetFireData = document.querySelector('#getfiredata')
-const LogFireData = document.querySelector('#logfiredata')
-
-const RepoMapWestCoast = document.querySelector('#repomapwestcoast')
-const RepoMapSeattle = document.querySelector('#repomapseattle')
-const RepoMapPDX = document.querySelector('#repomappdx')
-const RepoMapSF = document.querySelector('#repomapsf')
-const RepoMapLA = document.querySelector('#repomapla')
-
-const loaderContainer = document.querySelector('.loader-container');
-
-// -----v----v----v----v-----v----v----v----v----- \\
-// ----- Start AQI Area ----- Start AQI Area ----- \\
-// -----v----v----v----v-----v----v----v----v----- \\
 
 let allMarkers = {};
  
@@ -124,7 +106,7 @@ function populateAndFitMarkers(map, bounds) {
         let [lat, lng] = bounds.split(",");
         lat = parseFloat(lat);
         lng = parseFloat(lng);
-        bounds = `${lat - 0.5},${lng - 0.5},${lat + 0.5},${lng + 0.5}`;
+        bounds = `${lat - 1.5},${lng - 1.5},${lat + 1.5},${lng + 1.5}`;
     }
     populateMarkers(map, bounds).then((markerBounds) => {
         let [lat1, lng1, lat2, lng2] = bounds.split(",");
@@ -199,22 +181,23 @@ function getMarkerAQI(markerUID) {
 }
  
 function init() {
-    // var map = createMap();
+    var map = createMap();
  
     const locations = {
-        // "xWestCoast, USA": "41.1, -125",
-        Seattle: "47.606000, -122.332000",
-        Portland: "44.9, -123",
-        "San Francisco": "37.775, -122.419",
+        "xWestCoast, USA": "48.565277856616916, -170.9411047361597, 31.02412754674347, -108.79524531727391",
+        Seattle: "47.606, -122.332",
+        // xPortland: "45, -122",
+        "xSan Francisco": "37.775, -122.419",
         "Los Angeles": "34.052235,-118.243683",
-        Beijing: "39.379436,116.091230,40.235643,116.784382",
+        // Beijing: "39.379436,116.091230,40.235643,116.784382",
         // Bucharest:
         //     "44.50858895332098,25.936583232631918,44.389144165939854,26.300222840009447",
-        London: "51.69945358064312,-0.5996591366844406,51.314690280921894,0.3879568209963314",
+        // London: "51.69945358064312,-0.5996591366844406,51.314690280921894,0.3879568209963314",
         // Bangalore:
         //     "13.106898860432123,77.38497433246386,12.825861486200223,77.84571346820603",
         // Gdansk: "54.372158,18.638306",
-        Paris: "48.864716,2.349014",
+        // Paris: "48.864716,2.349014",
+        // Paris: "48.864716,2.349014",
         // Seoul: "37.532600,127.024612",
         // Jakarta: "-6.200000,106.816666",
     };
@@ -222,7 +205,7 @@ function init() {
     let oldButton;
     function addLocationButton(location, bounds) {
         let button = document.createElement("button");
-        button.classList.add("ui", "button", "tiny", "flex-column");
+        button.classList.add("ui", "button", "tiny");
         document.getElementById("leaflet-locations").appendChild(button);
         button.innerHTML = location;
         let activate = () => {
@@ -254,168 +237,3 @@ function token() {
 }
  
 init();
-
-// ---^----^----^----^-----^----^----^----^--- \\
-// ----- End AQI Area ----- End AQI Area ----- \\
-// ---^----^----^----^-----^----^----^----^--- \\
-
-
-
-// -v-v-v- Reposition Map -v-v-v- //
-function repoMapWestCoast() {
-    map.setView(new L.LatLng(41.1, -125), 5);
-};
-
-function repoMapSeattle() {
-    map.setView(new L.LatLng(47.606, -122.332), 8);
-};
-
-function repoMapPDX() {
-    map.setView(new L.LatLng(45, -122), 7);
-};
-
-function repoMapSF() {
-    map.setView(new L.LatLng(37.775, -122.419), 7);
-};
-
-function repoMapLA() {
-    map.setView(new L.LatLng(33.958, -118.45), 11);
-};
-// -^-^-^- Reposition Map -^-^-^- //
-
-
-// -v-v-v- Display Loader -v-v-v- //
-const displayLoader = () => {
-    loaderContainer.style.display = 'block';
-};
-
-const hideLoader = () => {
-    loaderContainer.style.display = 'none';
-};
-// -^-^-^- Display Loader -^-^-^- //
-
-
-// -v-v-v- Fetch and Place Fire Data -v-v-v- //
-let url = 'https://eonet.gsfc.nasa.gov/api/v3/events?category=wildfires';
-let i = 0;
-
-let firemark1 = 0;
-let arrlength = 0;
-let fireArray = [];
-let firemarker = 0;
-
-const fireicon = new L.icon({
-    iconUrl: "./images/fire-icon.png",
-    iconSize: [40, 40]
-});
-
-
-function placeMarker() {
-    for (let index = 0; index < fireArray.length; index++) {
-        const element = fireArray[index];
-        console.log(element);
-
-        const lat = fireArray[index].geometry[0].coordinates[1];
-        const long = fireArray[index].geometry[0].coordinates[0];
-        const title = fireArray[index].title;
-        const infolink = fireArray[index].sources[0].url
-        const firedate = fireArray[index].geometry[0].date
-
-        console.log(lat,long);
-        firemarker = L.marker([lat, long], {icon: fireicon})
-            .addTo(map)
-            .bindPopup('Name: "' + title + '"<br>' + 'Date: ' + firedate + '<br>' + '<a href="' + infolink + '"target="_blank" rel="noopener noreferrer">Link (new tab) for more information on the "' + title + '"</a>');
-    }
-}
-
-function getFireData() {
-    console.log('getfiredata button fire');
-    displayLoader()
-    fetch(url)
-        .then(response => response.json())
-        .then(data => (
-            console.log("0-wildfire title: ", data.events[i].title),
-            console.log("1", data.events[i]),
-            console.log("2", data.events[i].geometry),
-            console.log("3", data.events[i].geometry[i].coordinates),
-            console.log("4-longitude", data.events[i].geometry[i].coordinates[i]),
-            console.log("5-latitude", data.events[i].geometry[i].coordinates[(i + 1)]),
-
-            mylong = data.events[i].geometry[i].coordinates[i],
-            mylat = data.events[i].geometry[i].coordinates[(i + 1)],
-            mytitle = data.events[i].title,
-
-            firemark1 = L.marker([mylat, mylong]).addTo(map).bindPopup("Most Recent Fire: " + mytitle),
-
-            console.log('OneFire Latitude (mylat): ', mylat),
-            console.log('OneFire Longitude: (mylong): ', mylong),
-            console.log('For the Above ^ wildfire name (mytitle) is: ', mytitle),
-
-            arrlength = data.events.length,
-            console.log('arrlength is:', arrlength),
-
-            fireArray = data.events,
-            console.log('fireArray is:', fireArray)
-
-        )
-        )
-        .then(data => {
-            (placeMarker(data));
-            hideLoader();
-        }
-        )
-        .catch(error => console.log(error));
-};
-// -^-^-^- Fetch and Place Fire Data -^-^-^- //
-
-
-function logFireData() {
-    console.log('OneFire Latitude (mylat): ', mylat),
-    console.log('OneFire Longitude: (mylong): ', mylong),
-    console.log('For the Above ^ wildfire name (mytitle) is: ', mytitle),
-    console.log('arrlength is:', arrlength),
-    console.log('fireArray is:', fireArray)
-}
-
-
-// -v-v-v- Generate test markers -v-v-v- //
-let testmarker = 0;
-
-function addTestMarker() {
-    console.log('addtestmarker button fire');
-    testmarker = L.marker([40, -122]).addTo(map);
-}
-
-function removeTestMarker() {
-    console.log('removetestmarker button fire');
-    map.removeLayer(testmarker);
-}
-// -^-^-^- Generate test markers -^-^-^- //
-
-
-
-// -v-v-v- Map Section -v-v-v- //
-var map = L.map('map').setView([41.1, -125], 5);
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-// -^-^-^- Map Section -^-^-^- //
-
-
-
-AddTestMarker.addEventListener('click', addTestMarker);
-RemoveTestMarker.addEventListener('click', removeTestMarker);
-
-GetFireData.addEventListener('click', getFireData);
-LogFireData.addEventListener('click', logFireData);
-
-RepoMapWestCoast.addEventListener('click', repoMapWestCoast)
-RepoMapSeattle.addEventListener('click', repoMapSeattle)
-RepoMapPDX.addEventListener('click', repoMapPDX)
-RepoMapSF.addEventListener('click', repoMapSF)
-RepoMapLA.addEventListener('click', repoMapLA)
-
-
-// getFireData();

@@ -1,7 +1,8 @@
 # West Coast Fire Map
 
-- Display location, name, links to more info for active and recent wildfires
-- Preset geoloc focus: West Coast, USA
+- Display location, name, links to more info for active and recent wildfires.
+- Real-time air quality index (AQI) information now available.
+- Preset focus: Seattle, Portland, San Francisco, Los Angeles, Beijing, London, Paris.
 - Currently in development
 
 ## Live Link:

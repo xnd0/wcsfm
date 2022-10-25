@@ -16,21 +16,22 @@
 
     <div id="app-wrap">
 
-        <header> Header · West Coast Fire Map</header>
+        <header> Header · West Coast Fire + AQI Map</header>
 
         <div class='flex-container'>
             <div class='main-leftside'>
-                <p>(leftside)</p>
+                <!-- <p>(leftside)</p> -->
                 <div class="flex-row">
                     <img src="images/fire-icon.png" alt="fire flames" height=50 width=50 />
                     <p>search:</p>
                 </div>
 
                 <button id="getfiredata">Place All Fire Markers</button>
+                <br>
                 <button id="logfiredata">Console.log Info</button>
                 <br>
-                <button id="addtestmarker">add testmarker</button>
-                <button id="removetestmarker">remove testmarker</button>
+                <button id="addtestmarker">add_testmarker</button>
+                <button id="removetestmarker">remove_testmarker</button>
                 <br>
 
                 <div class="loader-container" style="display:none">
@@ -45,23 +46,37 @@
             </div>
 
             <div class='main-rightside'>
-                <p>(rightside)</p>
-                <p>goto:</p>
-                <button id="repomapwestcoast">West Coast, USA</button>
-                <button id="repomapseattle">Seattle, WA</button>
-                <button id="repomappdx">Portland, OR</button>
-                <button id="repomapsf">San Francisco, CA</button>
-                <button id="repomapla">Los Angeles, CA</button>
+                <!-- <p>(rightside)</p> -->
+                <div class="flex-column">
+                    <p>Map Goto:</p>
+                    <button id="repomapwestcoast">West Coast, USA</button>
+                    <button id="repomapseattle">Seattle, WA</button>
+                    <button id="repomappdx">Portland, OR</button>
+                    <button id="repomapsf">San Francisco, CA</button>
+                    <button id="repomapla">Los Angeles, CA</button>
+                </div>
+
+                <!-- AQI Map -->
+                <p>Load AQI + Reposition:</p>
+                <div class="flex-row">
+                    <div class="location-wrap">
+                        <div id="leaflet-locations"></div>
+                    </div>
+                    <!-- <div id="leaflet-map"></div> -->
+                </div>
+                <div id="leaflet-map-bounds"></div>
+                <div id="leaflet-map-error"></div>
             </div>
 
         </div>
 
-        <footer>Footer · West Coast Fire Map </footer>
+        <footer>Footer · West Coast Fire + AQI Map </footer>
 
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
         integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+    <!-- <script src="./aqi.js"></script> -->
     <script src="./script.js"></script>
 </body>
 
